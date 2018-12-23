@@ -1,0 +1,159 @@
+html {
+    background: #bbbbbb;
+    font-family: "Roboto", sans-serif;}
+
+img {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title, #result {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#menuBoxes {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    font-size: 1.5em;
+}
+
+#game, .sn2Reactant, .sn1Reactant {
+    display: none;
+}
+
+#subButton, #menuButton {
+    margin-left: 30%;
+    margin-right:30%;
+    margin-top: 10px;
+    margin-bottom: 10px;}
+
+#answer {
+    font-size: 2em;
+    display: none;
+    margin-top: 410px;}
+
+#frame {
+    width: 100%;
+    height: 410px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background:white;}
+
+#dashboard {
+    margin-top: 410px;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: inline-block;}
+
+#instructions {
+    text-align: center;
+}
+
+#dashBoxes {
+    display: inline-block;
+    width: 77%;
+    border: 1px solid black;
+    padding-bottom: 20px;
+}
+
+#submit {
+    width: 22%;
+    position: fixed;
+    top: 420px;
+    display: inline-block;
+    /* border: 1px solid rgb(228, 220, 220); */
+}
+
+#score {
+    display: inline-block;
+    font-size: 1em;
+}
+
+#reset, #startButton {
+    display: block;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#scoreBar {
+    margin-left: 30%;
+}
+
+input[type=button], button{
+    padding: 11px;
+    font-size: 1.1em;}
+
+input[type=checkbox] {
+    margin: 10px;
+    margin-left: 10px;
+    margin-right: 0px;
+    height: 19px;
+    float: left;}
+
+.checkBox {
+    border: 1px solid #777777;
+    border-radius: 10px;
+    margin: 7px;
+    margin-right: 2%;
+    margin-left: 2%;
+    min-width: 100px;
+    display: inherit;}
+
+.checkBox:hover {
+    background: #cccccc;
+}
+
+.checkBox:active {
+    background: #b2b2b2;
+}
+
+.checkBox p {
+    margin: 10px;
+    display: inline-block;
+    padding-right: 15%;}
+
+::selection {
+    background: rgba(0, 0, 0, 0);
+}
+
+/* .scoreAnimOne {
+    font-size: 1.5em;
+    color: red;
+}
+
+.scoreAnimTwo {
+    font-size: 1em;
+    color: black;
+    transition-delay: 0.5s;
+    transition: 0.5s;
+} */
+
+/* .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;} */
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+    #frame {
+        height: 300px;
+    }
+
+    #boxes {
+        width: 60%;
+    }
+
+    #dashboard {
+        margin-top: 300px;
+    }
+
+    #submit {
+        top: 310px;
+    }
+}

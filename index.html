@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Reaction Study Tool</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div id="menu">
+            <h1 id="title">Organic Chemistry<br/>Reactions Study Tool</h1>
+            <p id="instructions">Select the reaction types that you want to study.</p>
+            <div id="menuBoxes">
+                <label for="sn2" class="checkBox"><input class="checkMenu" type="checkbox" id="sn2"><p>SN<sub>2</sub></p></label>
+                <label for="sn1" class="checkBox"><input class="checkMenu" type="checkbox" id="sn1"><p>SN<sub>1</sub></p></label>
+            </div>
+            <button id="startButton" onclick="start()">Start</button>
+        </div>
+        <div id="game">
+            <div id="frame">
+                <img id="question" src="" alt="hi" alignment="center">
+            </div>
+            <div id="answer">
+                <p id="result">Incorrect</p>
+                <input id="reset" type="button" value="Reset" onclick="reset()">
+            </div>
+            <div id="dashboard">
+                <div id="dashBoxes">
+                    <p id="instructions">Select all reagents required to complete the above reaction.</p>
+                    <label for="h2o2" class="checkBox sn1Reactant"><input class="checkChem" type="checkbox" id="h2o2"><p>H<sub>2</sub>O<sub>2</sub></p></label>
+                    <label for="h2o" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="h2o"><p>H<sub>2</sub>O</p></label>
+                    <label for="hbr" class="checkBox sn1Reactant"><input class="checkChem" type="checkbox" id="hbr"><p>HBr</p></label>
+                    <label for="h2" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="h2"><p>H<sub>2</sub></p></label>
+                    <label for="pt" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="pt"><p>Pt</p></label>
+                    <label for="br2" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="br2"><p>Br<sub>2</sub></p></label>
+                </div>
+                <div id="submit">
+                    <div id="scoreBar">
+                        <label for="score">Score: </label>
+                        <p id="score"></p>
+                    </div>
+                    <input type="button" value="Submit" id="subButton" onclick="checkAnswer()">
+                    <button id="menuButton" onclick="returnToMenu()">Return<br/>to Menu</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
