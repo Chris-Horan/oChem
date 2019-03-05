@@ -1,28 +1,65 @@
 {// Global Variables
 var imgArr = new Array;                 //Array of all images of selected reaction types.
-var sn2Questions = 2;                   //Number of questions on Sn2 reactions.
-var sn1Questions = 1;                   //Number of questions on Sn2 reactions.
-var numQuestions = 0;                   //Number of questions for selected reaction types.
+var sn2Questions = 0;                   //Number of questions on Sn2 reactions.
+var sn1Questions = 0;                   //Number of questions on Sn1 reactions.
+var e2Questions = 0;                   //Number of questions on E1 reactions.
+var e1Questions = 0;                   //Number of questions on E2 reactions.
+var addQuestions = 3;                   //Number of questions on Addition reactions.
+var cctQuestions = 0;                   //Number of questions on Carbon Chain Transformation reactions.
+var radQuestions = 0;                   //Number of questions on Radical reactions.
+var msQuestions = 0;                   //Number of questions on Multi-Step reactions.
+var numQuestions = 0;                   //Total number of questions for selected reaction types.
 var scoreNum = 0;                       //The user's current score.
-var sn2Reactants = document.getElementsByClassName("sn2Reactant");  //Sn2 reactant checkboxes.
-var sn1Reactants = document.getElementsByClassName("sn1Reactant");  //Sn1 reactant checkboxes. 
 var chemCheckBoxes = document.getElementsByClassName("checkChem");  //All reactant checkboxes.
 var img;                                //Path to image for currently selected question.
 }
 
-//  Counts the number of questions and displays appropriate reactants 
-//  for selected reaction types.
+document.onclick = clicked;
+
+async function clicked() {
+    colourChecked();
+}
+
+function colourChecked() {
+    var boxes = document.getElementsByClassName('checkBox');
+    for(var i = 0; i < boxes.length;i++) {
+        if(boxes[i].childNodes[0].checked) {
+            boxes[i].classList.add("checked");
+        }
+        else {
+            boxes[i].classList.remove("checked");
+        }
+        
+    }
+
+}
+
+//  Counts the number of questions for selected reaction types.
 function getReactionTypes() {
     if(sn2.checked) {
         numQuestions += sn2Questions;
-        for(var i = 0; i<sn2Reactants.length; i++)
-            sn2Reactants[i].style.display = "inline-block";
-    } else {for(var i = 0; i<sn2Reactants.length; i++) sn2Reactants[i].style.display = "none";}
+    }
     if(sn1.checked) {
         numQuestions += sn1Questions;
-        for(var i = 0; i<sn1Reactants.length; i++)
-            sn1Reactants[i].style.display = "inline-block";
-    } else {for(var i = 0; i<sn1Reactants.length; i++) sn1Reactants[i].style.display = "none";}
+    }
+    if(e2.checked) {
+        numQuestions += e2Questions;
+    }
+    if(e1.checked) {
+        numQuestions += e1Questions;
+    }
+    if(addition.checked) {
+        numQuestions += addQuestions;
+    }
+    if(cct.checked) {
+        numQuestions += cctQuestions;
+    }
+    if(radical.checked) {
+        numQuestions += radQuestions;
+    }
+    if(multi.checked) {
+        numQuestions += msQuestions;
+    }
 }
 
 //  Initially loads the game.
@@ -66,10 +103,46 @@ function populateArray() {
                 i++;
             }
         }
+        if(e2.checked) {
+            for(var j = 0; j < e2Questions; j += 1) {
+                imgArr[i] = "e2/" + j + ".png";
+                i++;
+            }
+        }
+        if(e1.checked) {
+            for(var j = 0; j < e1Questions; j += 1) {
+                imgArr[i] = "e1/" + j + ".png";
+                i++;
+            }
+        }
+        if(addition.checked) {
+            for(var j = 0; j < addQuestions; j += 1) {
+                imgArr[i] = "addition/" + j + ".png";
+                i++;
+            }
+        }
+        if(cct.checked) {
+            for(var j = 0; j < cctQuestions; j += 1) {
+                imgArr[i] = "cct/" + j + ".png";
+                i++;
+            }
+        }
+        if(radical.checked) {
+            for(var j = 0; j < radQuestions; j += 1) {
+                imgArr[i] = "radical/" + j + ".png";
+                i++;
+            }
+        }
+        if(multi.checked) {
+            for(var j = 0; j < msQuestions; j += 1) {
+                imgArr[i] = "multi/" + j + ".png";
+                i++;
+            }
+        }
     }
 }
 
-//  Displays a random image in the document.
+//  Displays a random problem image in the document.
 function getRandomImage() {
     var path = 'problems/';
     var probNum = Math.floor( Math.random() * imgArr.length );
@@ -81,21 +154,21 @@ function getRandomImage() {
 function checkAnswer() {
     var checked = document.querySelectorAll('#dashBoxes :checked').length;
     switch(img){
-        case 'sn2/0.png':
+        case 'addition/0.png':
             if(br2.checked == true && h2o.checked == true && checked == 2){
                 correct();
             }
             else {
                 incorrect();
             } break;
-        case 'sn2/1.png':
+        case 'addition/1.png':
             if(h2.checked == true && pt.checked == true && checked == 2) {
                 correct();
             }
             else {
                 incorrect();
             } break;
-        case 'sn1/0.png':
+        case 'addition/2.png':
             if(hbr.checked == true && h2o2.checked == true && checked == 2) {
                 correct();
             }
@@ -128,6 +201,7 @@ function displayAnswer() {
 
 //  Resets the program.
 function reset() {
+    window.scrollTo(0, 0);
     dashboard.style.display = "inline-block";
     answer.style.display = "none";
     newRound();

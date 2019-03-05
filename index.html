@@ -1,10 +1,11 @@
 <html>
     <head>
         <title>Reaction Study Tool</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="menu">
@@ -13,6 +14,12 @@
             <div id="menuBoxes">
                 <label for="sn2" class="checkBox"><input class="checkMenu" type="checkbox" id="sn2"><p>SN<sub>2</sub></p></label>
                 <label for="sn1" class="checkBox"><input class="checkMenu" type="checkbox" id="sn1"><p>SN<sub>1</sub></p></label>
+                <label for="e2" class="checkBox"><input class="checkMenu" type="checkbox" id="e2"><p>E<sub>2</sub></p></label>
+                <label for="e1" class="checkBox"><input class="checkMenu" type="checkbox" id="e1"><p>E<sub>1</sub></p></label>
+                <label for="addition" class="checkBox"><input class="checkMenu" type="checkbox" id="addition"><p>Addition</p></label>
+                <label for="cct" class="checkBox"><input class="checkMenu" type="checkbox" id="cct"><p class="long">Carbon Chain Changes</p></label>
+                <label for="radical" class="checkBox"><input class="checkMenu" type="checkbox" id="radical"><p>Radical</p></label>
+                <label for="multi" class="checkBox"><input class="checkMenu" type="checkbox" id="multi"><p>Multi Step</p></label>
             </div>
             <button id="startButton" onclick="start()">Start</button>
         </div>
@@ -26,13 +33,44 @@
             </div>
             <div id="dashboard">
                 <div id="dashBoxes">
-                    <p id="instructions">Select all reagents required to complete the above reaction.</p>
-                    <label for="h2o2" class="checkBox sn1Reactant"><input class="checkChem" type="checkbox" id="h2o2"><p>H<sub>2</sub>O<sub>2</sub></p></label>
-                    <label for="h2o" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="h2o"><p>H<sub>2</sub>O</p></label>
-                    <label for="hbr" class="checkBox sn1Reactant"><input class="checkChem" type="checkbox" id="hbr"><p>HBr</p></label>
-                    <label for="h2" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="h2"><p>H<sub>2</sub></p></label>
-                    <label for="pt" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="pt"><p>Pt</p></label>
-                    <label for="br2" class="checkBox sn2Reactant"><input class="checkChem" type="checkbox" id="br2"><p>Br<sub>2</sub></p></label>
+                    <p id="instructions">Select all reagents and conditions required to complete the above reaction.</p>
+                    <label for="dmso" class="checkBox reactant"><input class="checkChem" type="checkbox" id="dmso"><p>DMSO</p></label>
+                    <label for="na" class="checkBox reactant"><input class="checkChem" type="checkbox" id="na"><p>Na<sub>(s)</sub></p></label>
+                    <label for="h2o" class="checkBox reactant"><input class="checkChem" type="checkbox" id="h2o"><p>H<sub>2</sub>O</p></label>
+                    <label for="naoh" class="checkBox reactant"><input class="checkChem" type="checkbox" id="naoh"><p>NaOH</p></label>
+                    <label for="naome" class="checkBox reactant"><input class="checkChem" type="checkbox" id="naome"><p>NaOMe</p></label>
+                    <label for="heat" class="checkBox reactant"><input class="checkChem" type="checkbox" id="heat"><p>Heat</p></label>
+                    <label for="lowt" class="checkBox reactant"><input class="checkChem" type="checkbox" id="lowt"><p>-30<sup>o</sup>C</p></label>
+                    <label for="h3o" class="checkBox reactant"><input class="checkChem" type="checkbox" id="h3o"><p>H<sub>3</sub>O+</p></label>
+                    <label for="bh3" class="checkBox reactant"><input class="checkChem" type="checkbox" id="bh3"><p>BH<sub>3</sub></p></label>
+                    <label for="thf" class="checkBox reactant"><input class="checkChem" type="checkbox" id="thf"><p>THF</p></label>
+                    <label for="rco3h" class="checkBox reactant"><input class="checkChem" type="checkbox" id="rco3h"><p>RCO<sub>3</sub>H</p></label>
+                    <label for="oso4" class="checkBox reactant"><input class="checkChem" type="checkbox" id="oso4"><p>OsO<sub>4</sub></p></label>
+                    <label for="nahso3" class="checkBox reactant"><input class="checkChem" type="checkbox" id="nahso3"><p>NaHSO<sub>3</sub></p></label>
+                    <label for="o3" class="checkBox reactant"><input class="checkChem" type="checkbox" id="o3"><p>O<sub>3</sub></p></label>
+                    <label for="dms" class="checkBox reactant"><input class="checkChem" type="checkbox" id="dms"><p>DMS</p></label>
+                    <label for="tscl" class="checkBox reactant"><input class="checkChem" type="checkbox" id="tscl"><p>TSCl</p></label>
+                    <label for="pyridine" class="checkBox reactant"><input class="checkChem" type="checkbox" id="pyridine"><p>Pyridine</p></label>
+                    <label for="acetone" class="checkBox reactant"><input class="checkChem" type="checkbox" id="acetone"><p>acetone</p></label>
+                    <label for="hv" class="checkBox reactant"><input class="checkChem" type="checkbox" id="hv"><p>hV</p></label>
+                    <label for="tbuok" class="checkBox reactant"><input class="checkChem" type="checkbox" id="tbuok"><p>t-BuOK</p></label>
+                    <label for="tbuoh" class="checkBox reactant"><input class="checkChem" type="checkbox" id="tbuoh"><p>t-BuOH</p></label>
+                    <label for="dbn" class="checkBox reactant"><input class="checkChem" type="checkbox" id="dbn"><p>DBN</p></label>
+                    <label for="h2o2" class="checkBox reactant"><input class="checkChem" type="checkbox" id="h2o2"><p>H<sub>2</sub>O<sub>2</sub></p></label>
+                    <label for="h2so4" class="checkBox reactant"><input class="checkChem" type="checkbox" id="h2so4"><p>H<sub>2</sub>SO<sub>4</sub></p></label>
+                    <label for="hgso4" class="checkBox reactant"><input class="checkChem" type="checkbox" id="hgso4"><p>HgSO<sub>4</sub></p></label>
+                    <label for="lind" class="checkBox reactant"><input class="checkChem" type="checkbox" id="lind"><p>Lindlar</p></label>
+                    <label for="nah" class="checkBox reactant"><input class="checkChem" type="checkbox" id="nah"><p>NaH</p></label>
+                    <label for="xsnanh2" class="checkBox reactant"><input class="checkChem" type="checkbox" id="xsnanh2"><p>xsNaNH<sub>2</sub></p></label>
+                    <label for="nh3" class="checkBox reactant"><input class="checkChem" type="checkbox" id="nh3"><p>NH<sub>3</sub></p></label>
+                    <label for="nh2" class="checkBox reactant"><input class="checkChem" type="checkbox" id="nh2"><p>NH<sub>2</sub></p></label>
+                    <label for="rbr" class="checkBox reactant"><input class="checkChem" type="checkbox" id="rbr"><p>R-Br</p></label>
+                    <label for="nbs" class="checkBox reactant"><input class="checkChem" type="checkbox" id="nbs"><p>NBS</p></label>
+                    <label for="hbr" class="checkBox reactant"><input class="checkChem" type="checkbox" id="hbr"><p>HBr</p></label>
+                    <label for="xshbr" class="checkBox reactant"><input class="checkChem" type="checkbox" id="xshbr"><p>xsHBr</p></label>
+                    <label for="h2" class="checkBox reactant"><input class="checkChem" type="checkbox" id="h2"><p>H<sub>2</sub></p></label>
+                    <label for="pt" class="checkBox reactant"><input class="checkChem" type="checkbox" id="pt"><p>Pt</p></label>
+                    <label for="br2" class="checkBox reactant"><input class="checkChem" type="checkbox" id="br2"><p>Br<sub>2</sub></p></label>
                 </div>
                 <div id="submit">
                     <div id="scoreBar">
@@ -40,7 +78,7 @@
                         <p id="score"></p>
                     </div>
                     <input type="button" value="Submit" id="subButton" onclick="checkAnswer()">
-                    <button id="menuButton" onclick="returnToMenu()">Return<br/>to Menu</button>
+                    <button id="menuButton" onclick="returnToMenu()">Menu</button>
                 </div>
             </div>
         </div>
