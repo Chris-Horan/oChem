@@ -230,6 +230,9 @@ label p {
 /* fix hover on devices */
 @media (min-width: 800px) {
     .checkBox:hover {
+        background: #d4d4d4;
+    }
+    .checked:hover {
         background: #dddddd;
     }
 }
