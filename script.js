@@ -1,13 +1,13 @@
 {// Global Variables
 var imgArr = new Array;                 //Array of all images of selected reaction types.
-var sn2Questions = 0;                   //Number of questions on Sn2 reactions.
-var sn1Questions = 0;                   //Number of questions on Sn1 reactions.
-var e2Questions = 0;                   //Number of questions on E1 reactions.
-var e1Questions = 0;                   //Number of questions on E2 reactions.
-var addQuestions = 3;                   //Number of questions on Addition reactions.
-var cctQuestions = 0;                   //Number of questions on Carbon Chain Transformation reactions.
-var radQuestions = 0;                   //Number of questions on Radical reactions.
-var msQuestions = 0;                   //Number of questions on Multi-Step reactions.
+var sn2Questions = 4;                   //Number of questions on Sn2 reactions.
+var sn1Questions = 3;                   //Number of questions on Sn1 reactions.
+var e2Questions = 3;                   //Number of questions on E1 reactions.
+var e1Questions = 1;                   //Number of questions on E2 reactions.
+var addQuestions = 5;                   //Number of questions on Addition reactions.
+var cctQuestions = 4;                   //Number of questions on Carbon Chain Transformation reactions.
+var radQuestions = 2;                   //Number of questions on Radical reactions.
+//var msQuestions = 0;                   //Number of questions on Multi-Step reactions.
 var numQuestions = 0;                   //Total number of questions for selected reaction types.
 var scoreNum = 0;                       //The user's current score.
 var chemCheckBoxes = document.getElementsByClassName("checkChem");  //All reactant checkboxes.
@@ -57,9 +57,9 @@ function getReactionTypes() {
     if(radical.checked) {
         numQuestions += radQuestions;
     }
-    if(multi.checked) {
-        numQuestions += msQuestions;
-    }
+    // if(multi.checked) {
+    //     numQuestions += msQuestions;
+    // }
 }
 
 //  Initially loads the game.
@@ -133,12 +133,12 @@ function populateArray() {
                 i++;
             }
         }
-        if(multi.checked) {
-            for(var j = 0; j < msQuestions; j += 1) {
-                imgArr[i] = "multi/" + j + ".png";
-                i++;
-            }
-        }
+        // if(multi.checked) {
+        //     for(var j = 0; j < msQuestions; j += 1) {
+        //         imgArr[i] = "multi/" + j + ".png";
+        //         i++;
+        //     }
+        // }
     }
 }
 
@@ -157,24 +157,91 @@ function checkAnswer() {
         case 'addition/0.png':
             if(br2.checked == true && h2o.checked == true && checked == 2){
                 correct();
-            }
-            else {
-                incorrect();
-            } break;
+            } else {incorrect();} break;
         case 'addition/1.png':
             if(h2.checked == true && pt.checked == true && checked == 2) {
                 correct();
-            }
-            else {
-                incorrect();
-            } break;
+            } else {incorrect();}break;
         case 'addition/2.png':
             if(hbr.checked == true && h2o2.checked == true && checked == 2) {
                 correct();
-            }
-            else {
-                incorrect();
-            } break;
+            } else {incorrect();} break;
+        case 'addition/3.png':
+            if(hbr.checked == true && lowt.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'addition/4.png':
+            if(h3o.checked == true && checked == 1) {
+                correct();
+            } else {incorrect();} break;
+        case 'cct/0.png':
+            if(o3.checked == true && dms.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'cct/1.png':
+            if(h2so4.checked == true && hgso4.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'cct/2.png':
+            if(h2.checked == true && lind.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'cct/3.png':
+            if(na.checked == true && nh3.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'e1/0.png':
+            if(acetone.checked == true && heat.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'e2/0.png':
+            if(naoh.checked == true && h2o.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'e2/1.png':
+            if(naoh.checked == true || naome.checked == true && checked == 1) {
+                correct();
+            } else {incorrect();} break;
+        case 'e2/2.png':
+            if(tbuok.checked == true && checked == 1) {
+                correct();
+            } else {incorrect();} break;
+        case 'radical/0.png':
+            if(nbs.checked == true && hv.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'radical/1.png':
+            if(br2.checked == true && hv.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn1/0.png':
+            if(hbr.checked == true && checked == 1) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn1/1.png':
+            if(hbr.checked == true && checked == 1) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn1/2.png':
+            if(h2o.checked == true && checked == 1) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn2/0.png':
+            if(naoh.checked == true && dmso.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn2/1.png':
+            if(naoh.checked == true && dmso.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn2/2.png':
+            if(hbr.checked == true && dmso.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
+        case 'sn2/3.png':
+            if(naome.checked == true && dmso.checked == true && checked == 2) {
+                correct();
+            } else {incorrect();} break;
         default:
             break;
     }
